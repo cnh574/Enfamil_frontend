@@ -94,7 +94,7 @@ const Products = () => {
                     </a>
                   </div>
                   <details className="add">
-                    <summary>Add Formula</summary>
+                    <summary>Edit Formula</summary>
                     <form className="main-add-form" onSubmit={handleSubmit}>
                       <label htmlFor="name">
                         Name:
