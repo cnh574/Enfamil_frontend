@@ -1,89 +1,57 @@
 import { useState } from "react";
 
 const Add = (props) => {
-  let emptyGuide = {
-    title: "",
-    subject: "",
-    category: "",
-    author: "",
-    length: 0,
-    link: "",
+  let emptyLocator = {
+    name: "",
+    price: 0,
+    image: "",
   };
-  const [guide, setGuide] = useState(emptyGuide);
+
+  const [locator, setLocator] = useState(emptyLocator);
 
   const handleChange = (event) => {
-    setGuide({ ...guide, [event.target.name]: event.target.value });
+    setLocator({ ...locator, [event.target.name]: event.target.value });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.handleCreate(guide);
-    setGuide(emptyGuide);
+    props.handleCreate(locator);
+    setLocator(emptyLocator);
   };
 
   return (
     <>
       <details className="add">
-        <summary>Add Guide</summary>
+        <summary>Add Locator</summary>
         <form className="main-add-form" onSubmit={handleSubmit}>
-          <label htmlFor="title">
-            Title:
+          <label htmlFor="name">
+            Name:
             <input
               type="text"
-              name="title"
-              value={guide.title}
+              name="Name"
+              value={locator.name}
               onChange={handleChange}
             />{" "}
           </label>
           <br />
-          <label htmlFor="subject">
+          <label htmlFor="price">
             Subject:
             <input
-              type="text"
-              name="subject"
-              value={guide.subject}
+              type="number"
+              name="price"
+              value={locator.price}
               onChange={handleChange}
             />
           </label>
           <br />
-          <label htmlFor="category">
+          <label htmlFor="image">
             Category:
             <input
               type="text"
-              name="category"
-              value={guide.category}
+              name="image"
+              value={locator.image}
               onChange={handleChange}
             />{" "}
-          </label>
-          <br />
-          <label htmlFor="author">
-            Author:
-            <input
-              type="text"
-              name="author"
-              value={guide.author}
-              onChange={handleChange}
-            />
-          </label>
-          <br />
-          <label htmlFor="length">
-            Length:
-            <input
-              type="number"
-              name="length"
-              value={guide.length}
-              onChange={handleChange}
-            />
-          </label>
-          <br />
-          <label htmlFor="link">
-            Link:
-            <input
-              type="url"
-              name="link"
-              value={guide.link}
-              onChange={handleChange}
-            />
           </label>
           <br />
           <label>
