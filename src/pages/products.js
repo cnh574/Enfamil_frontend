@@ -1,8 +1,10 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Add from "../components/Add";
+import Edit from "../components/Edit";
 
-// import { Enfamils } from "./enfamils";
+// import { Enfamils } from "./en
 
 const Products = () => {
   const [locator, setLocator] = useState([]);
@@ -42,6 +44,9 @@ const Products = () => {
         {" "}
         Enfamil Formula's
       </h1>
+
+      <Add handleChange={handleChange} handleSubmit={handleSubmit} />
+
       <div className="flex flex wrap content-center flex-wrap mt-10  h-10">
         <input
           type="text"
@@ -66,6 +71,7 @@ const Products = () => {
               return locator;
             }
           })
+
           .map((locator) => (
             <section className="container">
               {/* <div className="flex flex-row "> */}
@@ -93,44 +99,10 @@ const Products = () => {
                       Learn more
                     </a>
                   </div>
-                  <details className="add">
-                    <summary>Edit Formula</summary>
-                    <form className="main-add-form" onSubmit={handleSubmit}>
-                      <label htmlFor="name">
-                        Name:
-                        <input
-                          type="text"
-                          name="Name"
-                          value={locator.name}
-                          onChange={handleChange}
-                        />{" "}
-                      </label>
-                      <br />
-                      <label htmlFor="price">
-                        Price:
-                        <input
-                          type="number"
-                          name="price"
-                          value={locator.price}
-                          onChange={handleChange}
-                        />
-                      </label>
-                      <br />
-                      <label htmlFor="image">
-                        Image:
-                        <input
-                          type="text"
-                          name="image"
-                          value={locator.image}
-                          onChange={handleChange}
-                        />{" "}
-                      </label>
-                      <br />
-                      <label>
-                        <input className="submit-btn" type="submit" />
-                      </label>
-                    </form>
-                  </details>
+                  <Edit
+                    handleChange={handleChange}
+                    handleSubmit={handleSubmit}
+                  />
                 </div>
               </div>
             </section>

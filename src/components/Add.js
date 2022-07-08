@@ -22,7 +22,7 @@ const Add = (props) => {
   return (
     <>
       <details className="add">
-        <summary>Add Locator</summary>
+        <summary>Add New Formula</summary>
         <form className="main-add-form" onSubmit={handleSubmit}>
           <label htmlFor="name">
             Name:
@@ -55,7 +55,7 @@ const Add = (props) => {
           </label>
           <br />
           <label>
-            <input className="submit-btn" type="submit" />
+            <input className="submit-btn" type="submit" value="Submit" />
           </label>
         </form>
       </details>

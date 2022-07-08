@@ -15,18 +15,12 @@ const Edit = (props) => {
   };
 
   return (
-    <details className="edit">
+    <div className="edit">
       <UserAddIcon className="h- w-5 text-black-500 "></UserAddIcon>
-      //{" "}
-      {/* <summary>
-        <img
-          id="edit-icon"
-          src="https://img.icons8.com/ios/50/undefined/edit--v1.png"
-        />
-      </summary> */}
+      <summary>Edit</summary>
       <form className="main-edit-form" onSubmit={handleSubmit}>
         <label htmlFor="name">
-          Title:
+          Name:
           <input
             type="text"
             name="name"
@@ -36,7 +30,7 @@ const Edit = (props) => {
         </label>
         <br />
         <label htmlFor="price">
-          Subject:
+          Price:
           <input
             type="text"
             name="number"
@@ -46,7 +40,7 @@ const Edit = (props) => {
         </label>
         <br />
         <label htmlFor="image">
-          Category:
+          Image:
           <input
             type="text"
             name="image"
@@ -67,7 +61,7 @@ const Edit = (props) => {
       >
         Remove
       </button>
-    </details>
+    </div>
   );
 };
 
