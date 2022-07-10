@@ -13,29 +13,23 @@ function App() {
 
   // CRUD  FUNCTION
   const getLocator = () => {
-    axios.get("http://localhost:8000/api/products").then((response) => {
+    axios.get(process.env.REACT_APP_BACKEND_URL).then((response) => {
       setLocator(response.data);
     });
   };
 
   const handleCreate = (addLocator) => {
     axios
-      .post("http://localhost:8000/api/products", addLocator)
+      .post(process.env.REACT_APP_BACKEND_URL, addLocator)
       .then((response) => {
-        // axios;
-        // .post("https://diyfrontend.herokuapp.com/guides", addGuide)
-        // .then((response) => {
         getLocator();
       });
   };
 
   const handleDelete = (event, deletedLocator) => {
     axios
-      .delete(`http://localhost:8000/api/products/${event.target.value}`)
+      .delete(`${process.env.REACT_APP_BACKEND_URL}${event.target.value}`)
       .then((response) => {
-        // axios
-        //   .delete(`https://diyfrontend.herokuapp.com//guides/${event.target.value}`)
-        // .then((response) => {
         setLocator(
           locator.filter((locator) => locator.id !== deletedLocator.id)
         );
@@ -44,14 +38,8 @@ function App() {
 
   const handleUpdate = (editLocator) => {
     axios
-      .put(`http://localhost:8000/api/products/${editLocator.id}`, editLocator)
+      .put(`${process.env.REACT_APP_BACKEND_URL}${editLocator.id}`, editLocator)
       .then((response) => {
-        // axios
-        //   .put(
-        //     `https://diyfrontend.herokuapp.com/Locator/${editLocator.id}`,
-        //     editLocator
-        //   )
-        //   .then((response) => {
         getLocator();
       });
   };
